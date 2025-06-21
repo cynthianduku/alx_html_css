@@ -1,0 +1,269 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+  --main-color: #FF6565;
+  --bg-color: #1e2235;
+  --text-color: #ffffff;
+  --max-width: 1000px;
+  --font-main: 'Source Sans Pro', sans-serif;
+}
+
+/* BODY */
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* CONTAINER */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* HERO SECTION */
+.hero {
+  background: url('images/headphones_hero_1.jpg') no-repeat center center / cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.site-header {
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  position: relative;
+}
+
+.logo {
+  height: 40px;
+}
+
+/* NAVIGATION */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.main-nav a:hover,
+.main-nav a:active {
+  color: var(--main-color);
+}
+
+/* HERO CONTENT */
+.hero-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:active {
+  opacity: 0.9;
+}
+
+/* BURGER MENU */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE NAVIGATION */
+@media (max-width: 480px) {
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    z-index: 2;
+  }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    width: 200px;
+    z-index: 1;
+  }
+
+  #menu-toggle:checked + .menu-icon + .main-nav ul {
+    display: flex;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* WHAT WE DO */
+.what-we-do {
+  padding: 4rem 1rem;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.what-we-do h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.what-we-do .intro {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.service-item {
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 1rem;
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--main-color);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.service-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* OUR RESULTS */
+.our-results {
+  padding: 4rem 1rem;
+  background: url('images/headphones_hero_2.jpg') no-repeat center center / cover;
+  color: #fff;
+  text-align: center;
+}
+
+.our-results h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.our-results p {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.results-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.result {
+  width: 200px;
+  height: 200px;
+  background-color: #FF6565; /* Single theme color */
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.result:hover {
+  transform: scale(1.05);
+}
+
+.result h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.result p {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
