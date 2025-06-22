@@ -31,7 +31,7 @@ body {
 /* HERO SECTION */
 .hero {
   background: url('images/headphones_hero_1.jpg') no-repeat center center / cover;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +58,7 @@ body {
   list-style: none;
   display: flex;
   gap: 2rem;
+  transition: all 0.3s ease;
 }
 
 .main-nav a {
@@ -121,13 +122,6 @@ body {
 
 /* RESPONSIVE NAVIGATION (JS-controlled) */
 @media (max-width: 480px) {
-  .menu-icon {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    right: 1rem;
-  }
-
   .main-nav ul {
     display: none;
     flex-direction: column;
@@ -139,11 +133,21 @@ body {
     right: 1rem;
     width: 200px;
     z-index: 1000;
-    animation: fadeIn 0.3s ease;
   }
 
   .main-nav ul.show {
     display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    z-index: 1001;
   }
 
   .hero-content h1 {
@@ -162,11 +166,16 @@ body {
 
 /* WHAT WE DO */
 .what-we-do {
+  min-height: 40vh; 
   padding: 4rem 1rem;
   background-color: #fff;
   color: #333;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 .what-we-do h2 {
   font-size: 2rem;
@@ -191,12 +200,21 @@ body {
   flex: 1 1 250px;
   max-width: 300px;
   padding: 1rem;
+  opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
   transition: transform 0.3s ease;
 }
-
 .service-item:hover {
   transform: scale(1.05);
+}
+.service-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.service-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.service-item:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
 .icon {
@@ -218,11 +236,16 @@ body {
 
 /* OUR RESULTS */
 .our-results {
+  min-height: 40vh; 
   padding: 4rem 1rem;
   background-color: #1e2235;
   color: #fff;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 .our-results h2 {
   font-size: 2rem;
@@ -249,12 +272,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: bounceIn 1s ease forwards;
-  transition: transform 0.3s ease;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .result:hover {
   transform: scale(1.1) rotate(3deg);
+  opacity: 1;
 }
 
 .pentagon {
@@ -284,54 +307,69 @@ body {
 
 /* CONTACT SECTION */
 .contact-us {
-  padding: 6rem 1rem;
+  height: 40vh;
   background-color: #fff;
   color: #333;
   text-align: center;
+ padding: 2rem 1rem;
+  display: flex;
+  align-items: center;        
+  justify-content: center;
+  flex-direction: column;
 }
 
 .contact-us h2 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact-form {
-  max-width: 700px;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
-  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0;
 }
 
+/* Form Group */
 .form-group {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+/* Label on top */
 .form-group label {
-  display: block;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
 }
 
+/* Input & Textarea with underline only */
 .form-group input,
 .form-group textarea {
-  width: 100%;
+  width: 300%;
+  height: 2rem;
   background: transparent;
   border: none;
+  border-bottom: 2px solid #ccc;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #333;
-  padding: 0.5rem 0;
+  transition: border-color 0.3s ease;
+  padding-left: 0;
 }
 
-.form-group hr {
-  border: none;
-  border-bottom: 1px solid #ccc;
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--main-color);
 }
 
-textarea {
+.form-group textarea {
+  height: 3.5rem;
   resize: vertical;
 }
 
@@ -339,9 +377,9 @@ textarea {
   background-color: var(--main-color);
   color: white;
   border: none;
-  padding: 0.75rem 2.5rem;
+  padding: 0.6rem 2rem;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   align-self: center;
   transition: opacity 0.3s ease;
@@ -463,5 +501,80 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* WHAT WE DO */
+.what-we-do {
+  padding: 4rem 1rem;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.what-we-do h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.what-we-do .intro {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.service-item {
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 1rem;
+  animation: fadeInUp 0.8s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--main-color);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.service-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #666;
+}
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+
+  .footer-copy {
+    text-align: center;
   }
 }
